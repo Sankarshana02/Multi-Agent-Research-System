@@ -4,9 +4,27 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from tools import web_search, scrape_url
 from dotenv import load_dotenv
-
+import os
+import streamlit as st
 load_dotenv()
-llm=ChatMistralAI(model="mistral-small-latest", temperature=0)
+
+def get_secret(key):
+    try:
+        return st.secrets[key]
+    except KeyError:
+        return os.getenv(key)
+
+MISTRAL_API_KEY = get_secret("MISTRAL_API_KEY")
+
+if not MISTRAL_API_KEY:
+    raise ValueError("MISTRAL_API_KEY not found. Check .env or Streamlit secrets.")
+
+llm = ChatMistralAI(
+    model="mistral-small-latest",
+    temperature=0,
+    api_key=MISTRAL_API_KEY
+)
+
 
 #1st Agent
 def build_search_agent():
