@@ -4,10 +4,22 @@ from bs4 import BeautifulSoup
 from tavily import TavilyClient
 import os
 from dotenv import load_dotenv  
-from rich import print
+import streamlit as st
+
+
 load_dotenv()
 
-tavily = TavilyClient(api_key=os.getenv("TAVILY_API_KEY"))
+def get_secret(key):
+    try:
+        return st.secrets[key]   # Streamlit Cloud
+    except Exception:
+        return os.getenv(key) 
+
+TAVILY_API_KEY = get_secret("TAVILY_API_KEY")
+if not TAVILY_API_KEY:
+    raise ValueError(" TAVILY_API_KEY not found")
+
+tavily = TavilyClient(api_key=TAVILY_API_KEY)
 
 @tool
 def web_search(query: str) -> str:
