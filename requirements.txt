@@ -1,37 +1,8 @@
-# LangChain + Mistral
-langchain==0.2.16
-langchain-core==0.2.38
-langchain-community==0.2.16
-langchain-mistralai==0.1.12
-mistralai==0.4.2
-
-# Web tools
-tavily-python==0.3.3
-beautifulsoup4==4.12.3
-requests==2.31.0
-lxml==5.1.0
-html5lib==1.1
-
-# Env
-python-dotenv==1.0.1
-
-# Async
-aiohttp==3.9.5
-
-# Data
-pandas==2.2.2
-
-# Token utils
-tiktoken==0.7.0
-
-# Debugging (compatible)
-rich==13.7.1
-
-# Reliability
-tenacity==8.2.3
-
-# JSON
-orjson==3.10.7
-
-# Typing (IMPORTANT pin)
-pydantic==2.11.7
+streamlit
+langchain
+langchain-mistralai
+mistralai
+tavily-python
+python-dotenv
+beautifulsoup4
+requests
