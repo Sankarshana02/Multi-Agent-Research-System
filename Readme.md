@@ -140,4 +140,4 @@ Built with ❤️ as a multi-agent AI research system.
 
 ## 🚀 Live Demo
 
-👉 [OdinAI](https://odinai.streamlit.app/)]
+👉 [OdinAI](https://odinai.streamlit.app/)
